@@ -1,0 +1,210 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Split The Bill</title>
+        <style type="text/css">
+         .headbar
+        {
+            width:100%;
+          height:60px;
+            background-color:990066;
+            
+        }
+        .headtext
+        {
+            margin:0px 70px;
+        }
+        
+        .container1{
+            background-color:green;
+            width:95%;
+            height:650px;
+            padding-top: 70px;
+        }
+           .container
+        {
+            width: 440px;
+            height:550px;
+            background-color:rgb(238, 232, 232) ;
+            
+            border-radius:10px;
+            position:relative;
+            right:10px;
+            left:10px;
+            
+            }
+        .container2
+        {
+           width:400px;
+           height:300px;
+           padding:20px 20px;
+           
+
+        }
+        .container3
+        {
+           
+            width:450px;
+            height:550px;
+            background-color: aqua;
+            
+            margin:70px 20px;
+            
+        }
+        .answer
+        {
+            text-align:center;
+            font-size:60px;
+            
+            color:993366;
+            margin:70px;
+        }
+        .clearfont
+        {
+            clear:both;
+        }
+        
+        .leftfont
+        {
+            float:left;
+        }
+        input
+        {
+            width:400px;
+            height:60px;
+            border:rgb(238, 232, 232) ;
+            border-radius:8px;
+            
+            
+        }
+        .no-spinners {
+  -moz-appearance:textfield;
+}
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+        
+        button
+        {
+            width:400px;
+            height:40px;
+            background-color:993366;
+           border:1px #fc0066 solid;
+           border-radius:8px;
+        }
+        body{
+            margin:0px;
+            padding:0px;
+        }
+        
+        </style>
+            
+    </head>
+    <body>
+    
+           <nav class=headbar>
+            <div class="headtext">
+                   <h1>
+                      <span style="font-size:50px">S</span><span style="color:white">plit The Bill</span>
+                   </h1>
+            
+            </div>
+        </nav>
+<div class="clearfont"></div>
+           
+<div class="container1 leftfont">
+                 <div class="container leftfont">
+                            <div style="text-align:center"><h1>Calculator</h1></div>
+                            <div style="text-align:center">Find out how much each person has to pay.</div>
+                                <div class="container2"> 
+    
+                                           <div><input type="number" class="no-spinners" id="amount" placeholder="Total Amount"></div>
+                                           <p></p>
+                                             <p id="wrongamount"></p>
+                                             <div><input type="number" class="no-spinners" id="people" placeholder="Number of People"></div>
+                                              <p></p>
+                                              <p id="wrongno"></p>
+                                             <div><input type="number"  class="no-spinners" id="tip" placeholder="Tips"></div>
+                                             <p id="wrongtip"></p>
+                                               <p></p>
+                                              <div><button id="result" onclick="f3()">calculate</button></div>
+    
+                               </div>
+
+                   </div>
+
+
+</div>
+                
+
+        <div class="container3 leftfont">
+            <div class="answer">Each person has to pay
+                
+                  <p id="rupee"></p>
+             </div>
+             
+        </div>
+
+
+      
+    
+    <script type="text/javascript">
+        function f3(){
+            document.getElementById("rupee").innerHTML="";
+      var totalamount=document.getElementById("amount").value;
+      var noofpeople=document.getElementById("people").value;
+      var tips=document.getElementById("tip").value;
+      
+      if(totalamount<1 || noofpeople<1 || tips<0 || tips==""){
+
+          if(totalamount<1){
+          document.getElementById("wrongamount").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+          }
+          else{
+            document.getElementById("wrongamount").innerHTML="";
+          }
+           if(noofpeople<1) {
+          document.getElementById("wrongno").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+         }
+         else{
+             
+            document.getElementById("wrongno").innerHTML="";
+         }
+         if(tips<0 || tips==""){
+              document.getElementById("wrongtip").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+          }
+          else{
+            document.getElementById("wrongtip").innerHTML="";
+          }
+          return;
+    
+}
+       else{
+        document.getElementById("wrongamount").innerHTML="";
+        document.getElementById("wrongno").innerHTML="";
+        document.getElementById("wrongtip").innerHTML="";
+           var total=0
+           var noof=Math.round(noofpeople)
+           var tip=Math.round(tips)
+            var total=parseInt(totalamount)+parseInt(tip)
+           var out=total/noof
+           var output=out.toFixed(2);
+
+        document.getElementById("rupee").innerHTML="Rs:"+output;
+        return;
+           
+       }
+        
+    
+        }
+       
+       </script>
+       </body>
+</html>
